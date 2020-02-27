@@ -1,0 +1,175 @@
+body {
+	padding: 0;
+	margin: 0;
+	background-color:#f4f4f4;
+
+}
+
+/*Global*/
+.container{
+	width: 100%
+	margin-bottom:0;
+	margin-top: 0;
+
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+
+}
+
+section {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+/*Header*/
+header{
+	background:#0D6213;
+	color: white;
+	padding-top: 30px;
+	min-height: 60px;
+	margin: 0;
+	overflow: none;
+	margin-bottom: 0;
+}
+
+header a{
+	color: #ffffff;
+	text-decoration: none; 
+	text-transform: uppercase;
+	font-size: 14px;
+}
+
+header li{
+	float: left;
+	display: inline;
+	padding: 0 20px 0 20px;  
+}
+
+header #logo{
+	float:left;
+	margin-left: 20px;
+
+}
+
+
+header #logo h1{
+	margin: 0;
+
+}
+
+
+header nav {
+	float: right;
+	margin-top:10px;
+}
+
+header .highlight{
+	color: white;
+}
+
+ header .current a{
+	color:#642828;
+	font-weight: bold;
+}
+ header .current a:hover{
+ 	background-color: black;
+ 	color:white;
+ 	padding: 0px 0px 0px 0px;
+ 	font-weight: bolder;
+}
+
+header a:hover{
+	color: #cccccc;
+	font-weight: bold;
+}
+
+
+#showcase{
+	/*background:url('../images/peugeot.jpg') no-repeat;*/
+	background-color: red;
+	/*		*/
+	text-align: center;
+	color: #ffffff;
+	border-bottom:#642828 0px solid;
+	margin-top: 0;
+	margin-bottom: 0;
+	
+
+}
+
+#showcase h2{
+	color: orange;
+	margin-top: none;
+	font-size:55px;
+	font-family:lucida calligraphy;
+}
+
+#showcase p{
+	font-size: 20px;
+	color:orange;
+	font-family: goudy stout;
+}
+.head{
+	width:30%;
+	margin:50px auto 0px;
+	color:white;
+	background:#5F9EA0;
+	text-align: center;
+	border-bottom:none;
+	border-radius:10px 10px 0px 0px;
+	padding:20px;
+}
+.form{
+	width: 30%;
+	margin:0px auto;
+	padding:20px;
+	border:1px solid #B0C4DE;
+	background:white;
+	border-radius: 0px 0px 10px 10px;
+
+}
+
+.input-group{
+	margin:10px 0px 10px 0px;
+}
+.input-group label{
+	display: block;
+	text-align:left;
+	margin:3px;
+}
+.input-group input{
+	height: 30px;
+	width:93%;
+	padding:5px 10px;
+	font-size: 16px;
+	border-radius: 5px;
+	border:1px solid gray;
+}
+.btn{
+	padding: 10px;
+	font-size:15px;
+	color:white;
+	background:#5F9EA0;
+	border:none;
+	border-radius:5px;
+}
+
+footer{
+	padding: 20px;
+	/*margin-top: 20px;*/
+	color: #ffffff;
+	background-color:#0D6213;
+	text-align: center;
+
+}
+.get_message{
+	background-color: #f4f4f4;
+	color:red;
+	border-radius:20px;
+	display:inline-block;
+	font font-weight: bolder;
+	font-size: 20px;
+	margin-left: 20px;
+}

@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: lato;
+    background: url(../img/b.jpg) no-repeat;
+    background-size: cover;
+}
+.header {
+    height: 130px;
+    background: #181818;
+    display: flex;
+}
+.logo {
+    float: left;
+    margin: auto 20px;
+}
+.logo img {
+    width: 30%;
+}
+.menu {
+    float: right;
+}
+.menu ul {
+	display: flex;
+	text-decoration: none;
+}
+.menu ul li {
+	display: flex;
+	text-decoration: none;
+    font-family: lato;
+    padding: 40px 20px;
+}
+.menu ul li a {
+	text-decoration: none;
+	color: #d65050;
+	transition: color .6s;
+}
+.menu ul li a:hover {
+	color: #1e73be;
+}
+.menu ul li form button {
+	border: 1px solid #d65050;
+    background: rgba(0,0,0,0);
+    color: #d65050;
+    padding: 5px;
+    border-radius: 3px;
+    transition: all .6s;
+}
+.menu ul li form button:hover {
+	border: 1px solid #1e73be;
+    color: #1e73be;
+}
+.deed {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    padding: 50px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, .7);
+    color: #ccc;
+}
+h2 {
+    font-size: 32px;
+    font-weight: 100;
+    width: 60%;
+    text-transform: uppercase;
+    color: #d65050;
+    margin-bottom: 10px;
+}
+.deed button {
+    margin-top: 5px;
+    background: #181818;
+    border: 1px solid #181818;
+    color: #ccc;
+    padding: 7px;
+    border-radius: 3px;
+    transition: all .6s;
+}
+.deed button:hover {
+    background: #ccc;
+    color: #181818;
+}
+.deed input {
+    background: #181818;
+    border: 1px solid #181818;
+    color: #ccc;
+    transition: all .6s;
+}
+.deed input:hover {
+    background: #ccc;
+    color: #181818;
+}
+.footer {
+    position: absolute;
+    top: 95%;
+    width: 98.5%;
+    overflow: hidden;
+    color: #ccc;
+    text-align: center;
+    padding: 10px;
+    background: #181818;
+}

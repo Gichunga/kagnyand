@@ -1,0 +1,51 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: lato;
+	box-sizing: border-box;
+}
+.header{
+	height: 130px;
+	background: #181818;
+	display: flex;
+}
+.logo{
+	float: left;
+}
+.logo img{
+	width: 30%;
+	padding: 15px;
+	background-size: contain;
+}
+.menu{
+	float: right;
+}
+.menu ul{
+	display: flex;
+}
+.menu ul li{
+	list-style-type: none;
+	display: flex;
+	font-family: lato;
+	padding: 40px 20px;
+}
+.menu ul li a{
+	text-decoration: none;
+	color: #d65050;
+}
+.menu ul li a:hover{
+	color: #1e73be;
+}
+.menu ul li form button{
+	border: 1px solid #d65050;
+	background: rgba(0, 0, 0, 0);
+	color: #d65050;
+	padding: 5px;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: all .6s;
+}
+.menu ul li form button:hover{
+	border: 1px solid #d65050;
+	color: #d65050;
+}

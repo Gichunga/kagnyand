@@ -1,0 +1,22 @@
+
+<!-- ob_start(); //Eliminate any error messages that could occur when using HTTP headers,
+//redirecting the user or sending the cookies -->
+<?php
+session_start();
+if (!isset($page_title))
+{
+    $page_title = "User_Registration";
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $page_title; ?></title>
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+<div class="header">User Registration</div>
+<div class="content">

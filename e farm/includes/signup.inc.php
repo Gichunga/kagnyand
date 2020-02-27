@@ -1,0 +1,149 @@
+<?php
+
+	if (isset($_POST['signup-submit']));
+	{
+		require 'dbh.inc.php';
+
+		$userName =  $_POST['userName'];
+		$firstName = $_POST['firstName'];
+		$lastName =  $_POST['lastName'];
+		$email = $_POST['email'];
+		$phone = $_POST['phone'];
+		$county = $_POST['county'];
+		$constituency = $_POST['constituency'];
+		$pwd = $_POST['password'];
+		$pwd1 =  $_POST['password1'];
+		$errors = array();
+
+		if(empty($userName) || empty($firstName) || empty($lastName) || empty($email) || empty($phone) || empty($county)  || empty($constituency) || empty($pwd) || empty($pwd1))
+		{
+			header("Location: ../signup.php?error=emptyfields&userName=".$userName."&firstName=".$firstName."&lastName=".$lastName."&email=".$email."&phone=".$phone."&county=".$county."&constituency=".$constituency);
+			exit();
+		}
+		if(strlen($pwd)<6)
+		{
+			header("Location: ../signup.php?error=passwordlength&userName=".$userName."&firstName=".$firstName."&lastName=".$lastName."&email=".$email."&phone=".$phone."&county=".$county."&constituency=".$constituency);
+			exit();
+		}
+		else if(!preg_match("/^['a-zA-Z0-9']*$/",$userName) && !preg_match("/^['a-zA-Z']*$/",$firstName) && !preg_match("/^['a-zA-Z']*$/",$lastName) && !preg_match("/^['0-9']*$/",$phone) && !preg_match("/^['a-zA-Z']*$/",$county) && !preg_match("/^['a-zA-Z']*$/",$constituency))
+		{
+			header("Location: ../signup.php?error=invaliddetails");
+			exit();
+		}
+		else if(!preg_match("/^['a-zA-Z0-9']*$/",$userName) && !preg_match("/^['a-zA-Z']*$/",$firstName) && !preg_match("/^['a-zA-Z']*$/",$lastName) && !preg_match("/^['0-9']*$/",$phone) && !preg_match("/^['a-zA-Z']*$/",$county))
+		{
+			header("Location: ../signup.php?error=invaliddetails&county=".$constituency);
+			exit();
+		}
+		else if(!preg_match("/^['a-zA-Z0-9']*$/",$userName) && !preg_match("/^['a-zA-Z']*$/",$firstName) && !preg_match("/^['a-zA-Z']*$/",$lastName) && !preg_match("/^['0-9']*$/",$phone) && !preg_match("/^['a-zA-Z']*$/",$constituency))
+		{
+			header("Location: ../signup.php?error=invaliddetails&county=".$county);
+			exit();
+		}
+		else if(!preg_match("/^['a-zA-Z0-9']*$/",$userName) && !preg_match("/^['a-zA-Z']*$/",$firstName) && !preg_match("/^['a-zA-Z']*$/",$lastName) && !preg_match("/^['a-zA-Z']*$/",$county) && !preg_match("/^['a-zA-Z']*$/",$constituency))
+		{
+			header("Location: ../signup.php?error=invaliddetails&phone=".$phone);
+			exit();
+		}
+		else if(!preg_match("/^['a-zA-Z0-9']*$/",$userName) && !preg_match("/^['a-zA-Z']*$/",$firstName) && !preg_match("/^['a-zA-Z']*$/",$county) && !preg_match("/^['a-zA-Z']*$/",$constituency))
+		{
+			header("Location: ../signup.php?error=invaliddetails&lastName=".$lastName);
+			exit();
+		}
+		else if(!preg_match("/^['a-zA-Z0-9']*$/",$userName) && !preg_match("/^['a-zA-Z']*$/",$lastName) && !preg_match("/^['0-9']*$/",$phone) && !preg_match("/^['a-zA-Z']*$/",$county) && !preg_match("/^['a-zA-Z']*$/",$constituency))
+		{
+			header("Location: ../signup.php?error=invaliddetails&firstName=".$firstName);
+			exit();
+		}
+		else if(!preg_match("/^['a-zA-Z']*$/",$firstName)  && !preg_match("/^['a-zA-Z']*$/",$lastName) && !preg_match("/^['0-9']*$/",$phone) && !preg_match("/^['a-zA-Z']*$/",$county) && !preg_match("/^['a-zA-Z']*$/",$constituency))
+		{
+			header("Location: ../signup.php?error=invaliddetails&userName=".$userName);
+			exit();
+		}
+		else if(!preg_match("/^['a-zA-Z0-9']*$/",$userName))
+		{
+			header("Location: ../signup.php?error=invaliddetails&firstName=".$firstName."&lastName=".$lastName."&email=".$email."&phone=".$phone."&county=".$county);
+			exit();
+		}
+		else if(!preg_match("/^['a-zA-Z']*$/",$firstName))
+		{
+			header("Location: ../signup.php?error=invaliddetails&userName=".$userName."&lastName=".$lastName."&email=".$email."&phone=".$phone."&county=".$county);
+			exit();
+		}
+		else if(!preg_match("/^['a-zA-Z']*$/",$lastName))
+		{
+			header("Location: ../signup.php?error=invaliddetails&userName=".$userName."&firstName=".$firstName."&email=".$email."&phone=".$phone."&county=".$county);
+			exit();
+		}
+		else if(!preg_match("/^['0-9']*$/",$phone))
+		{
+			header("Location: ../signup.php?error=invaliddetails&userName=".$userName."&firstName=".$firstName."&lastName=".$lastName."&email=".$email."&county=".$county);
+			exit();
+		}
+		else if(!preg_match("/^['a-zA-Z']*$/",$county))
+		{
+			header("Location: ../signup.php?error=invaliddetails&userName=".$userName."&firstName=".$firstName."&lastName=".$lastName."&email=".$email."&phone=".$phone);
+			exit();
+		}
+		else if(!preg_match("/^['a-zA-Z']*$/",$constituency))
+		{
+			header("Location: ../signup.php?error=invaliddetails&userName=".$userName."&firstName=".$firstName."&lastName=".$lastName."&email=".$email."&phone=".$phone."&county=".$county);
+			exit();
+		}
+		else if($pwd !== $pwd1)
+		{
+			header("Location: ../signup.php?error=passwordmatch&userName=".$userName."&firstName=".$firstName."&lastName=".$lastName."&email=".$email."&phone=".$phone."&county=".$county."&constituency=".$constituency);
+			exit();
+		}
+		else
+		{
+			$sql = "SELECT * FROM users WHERE userName=?";
+			$stmt = mysqli_stmt_init($conn);
+
+			if(!mysqli_stmt_prepare($stmt,$sql))
+			{
+				header("Location: ../signup.php?error=sqlerror$userName=".$userName."$firstName=".$firstName."&lastName=".$lastName."&email=".$email."&phone=".$phone."&county=".$county);
+				exit();
+			}
+			else
+			{
+				mysqli_stmt_bind_param($stmt,'s',$userName);
+				mysqli_stmt_execute($stmt);
+				mysqli_stmt_store_result($stmt);
+				$resultCheck = mysqli_stmt_num_rows($stmt);
+				if($resultCheck > 0)
+				{
+					header("Location: ../signup.php?error=userexists");
+					exit();
+				}
+				else 
+				{
+					$sql = "INSERT INTO users(userName, firstName, lastName, email, phone, county, password)  VALUES(?,?,?,?,?,?,?)";
+					$stmt = mysqli_stmt_init($conn);
+					if(!mysqli_stmt_prepare($stmt,$sql))
+					{
+						header("Location: ../signup.php?error=sqlerror&userName=".$userName."$firstName=".$firstName."&lastName=".$lastName."&email=".$email."&phone=".$phone."&county=".$county);
+						exit();
+					}
+					else
+					{
+						$hashPassword = password_hash($pwd,PASSWORD_DEFAULT);
+						mysqli_stmt_bind_param($stmt,'sssssss',$userName, $firstName, $lastName, $email, $phone,$county,$hashPassword);
+						mysqli_stmt_execute($stmt);
+						header("Location: ../index.php?signup=success");
+						exit();
+					}
+
+				}
+			}
+		}
+			mysqli_stmt_close($stmt);
+	mysqli_close();
+	}
+	// else
+	// {
+	// 	header("Location: ../signup.php");
+	// 	exit();
+	// }
+
+	?>

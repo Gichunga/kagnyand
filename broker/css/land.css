@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: lato;
+    background: #181818;
+}
+.header {
+    height: 130px;
+    background: #181818;
+    display: flex;
+}
+.logo {
+    float: left;
+    margin: auto 20px;
+}
+.logo img {
+    width: 30%;
+}
+.menu {
+    float: right;
+}
+.menu ul {
+	display: flex;
+	text-decoration: none;
+}
+.menu ul li {
+	display: flex;
+	text-decoration: none;
+    font-family: lato;
+    padding: 40px 20px;
+}
+.menu ul li a {
+	text-decoration: none;
+	color: #d65050;
+	transition: color .6s;
+}
+.menu ul li a:hover {
+	color: #1e73be;
+}
+.menu ul li form button {
+	border: 1px solid #d65050;
+    background: rgba(0,0,0,0);
+    color: #d65050;
+    padding: 5px;
+    border-radius: 3px;
+    transition: all .6s;
+}
+.menu ul li form button:hover {
+	border: 1px solid #1e73be;
+    color: #1e73be;
+}
+.content {
+    background: #ccc;
+    display: flex;
+}
+.left {
+    float: left;
+    width: 40%;
+}
+.right {
+    float: right;
+    height: 100vh;
+    flex: 1;
+}
+.showcase {
+    height: 80%;
+    background: url('../img/16347.jpg');
+    background-size: cover;
+}
+.form form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding-bottom: 1.3rem;
+}
+.form, .deed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding-bottom: 1rem;
+}
+h4 {
+    margin-bottom: 5px;
+}
+.form, .deed label{
+    font-size: 0.9rem;
+    line-height: 2rem;
+    font-weight: 500;
+}
+.form .text-input{
+    margin-bottom: 1.3rem;
+    width: 100%;
+    border-radius: 2px;
+    background: #ccc;
+    border-color: #555;
+    border: 1px solid #555;
+    color: #181818;
+    padding: 0.3rem 1rem;
+    line-height: 1.3rem;
+    width: 100%;
+}
+.signup-btn{
+    padding: 0.7rem 1rem;
+    height: 2.7rem;
+    display: block;
+    border: 0;
+    border-radius: 2px;
+    font-weight: 500;
+    background: #181818;
+    color: #ccc;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    transition: all .5s;
+}
+.signup-btn:hover{
+    border: 1px solid #181818;
+    background-color: #ccc;
+    color: #181818;
+}
+.footer {
+    color: #ccc;
+    text-align: center;
+    padding: 10px;
+}

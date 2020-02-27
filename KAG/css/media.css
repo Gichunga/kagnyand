@@ -1,0 +1,50 @@
+
+.form-container{
+	position: relative;
+	left: 15%; 
+	margin: 20px auto;
+}
+.form-header{
+	background-color: blue;
+	color:;
+	position: relative;
+	border-radius: 25px 25px 0 0; 
+	width: 300px;
+	text-align: center;
+	align-self: center;
+	padding: 20px;
+	font-size: 20px;
+	font-family: lucida calligraphy;
+	font-weight: bolder;                            
+
+}
+.form{
+	background-color: white;
+	position: relative;
+	border: 1px solid green;
+	border-radius: 0 0 25px 25px;
+	padding: 5px;
+	margin-bottom: 20px;
+	width: 300px;
+	text-align: center;
+
+
+}
+.input{
+	margin: 10px auto;
+}
+.submit-btn{
+	border-radius: 25px;
+	margin: 20px auto;
+	font-weight: bolder;
+	color: white;
+	font-size: 24px;
+	text-decoration: none;
+
+	background-color: lightgreen;
+}
+.submit-btn:hover{
+	border-radius: 25px ;
+	
+	transform: translate();
+}

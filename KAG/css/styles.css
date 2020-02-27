@@ -1,0 +1,502 @@
+ /*Global styles*/
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+body{
+    margin:0;
+    padding:0;
+    background-color:burlywood;
+}
+/* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+    font-family: "Roboto", sans-serif;
+}
+:root{
+    --main-font-color: #f2b632;
+    --main-white:#fff;
+    --main-font-dark-gray: #4d4d4d;
+    --main-footer-bg-color:#141414;
+    --main-font-family:"Cheddar Jack", cursive;
+}
+section{
+    padding: 6rem 0;
+}
+p{
+    line-height: 1.5;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--main-font-dark-gray);
+}
+a{
+    text-decoration: none;
+    color: var(--main-white);
+ }
+/*Reusable classes*/
+ .btn{
+     display:inline-block;
+     /*transform: translate (all 650ms);*/
+     border-radius:3px;
+     text-transform: uppercase;
+ }
+/*Header*/
+ header{
+     width: 100%;
+     height: 100vh;
+     background: linear-gradient(to bottom, rgba(0,0,0,.4), transparent),
+        url("../images/members.jpg") bottom no-repeat;
+     background-size: cover;
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     position: relative;
+ }
+/*Header - Nav Toogle*/
+.menu{
+    padding: 2rem 2.5rem;
+    position: fixed;
+    top: 3rem;
+    right: 3rem;
+    background-color: rgba(0,0,0,.5);
+    z-index: 999;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.menu .bar,
+.menu .bar::before,
+.menu .bar::after{
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 4rem;
+    background-color:var(--main-white);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    transition: 650ms
+}
+.menu .bar:before{
+    top: -2rem;
+}
+.menu .bar:after{
+    top: 2rem;
+}
+.active .bar{
+    background-color: transparent;
+}
+.active .bar::before{
+    transform: rotate(45deg);
+}
+.active .bar::after{
+    transform: rotate(-45deg);
+}
+.active .bar::before,
+.active.bar::after{
+    top: 0;
+}
+/*Header - Nav*/
+.nav{
+    display: inline;
+    float:left;
+    margin-left: 10%;
+}
+.nav img{
+    height: 120px;
+    float: left;
+    text-decoration: none;
+    width: 150px;
+    margin: 5px auto;
+    border-radius: 25px ;
+}
+.nav li{
+    margin:20px;
+    float:left;
+    font-size: 20px;
+    list-style-type: none;
+}
+.nav li a:hover{
+    color: limegreen;
+}
+
+
+/*Header - Main Text*/
+.main-text {
+    line-height: 0;
+    margin: auto;
+    color: var(--main-white);
+    user-select: none;
+
+}
+.main-text h1{
+    font-family: var(--main-font-family);
+    color: var(--main-font-color);
+    font-size: 8rem;
+    font-weight: 100;
+    margin-bottom: 5rem;
+
+}
+.main-text h2{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-right: -5px;
+    font-size: 2rem;
+    line-height: 1;
+    position: relative;
+}
+.main-text h2::before,
+.main-text h2::after{
+    content: '';
+    width: 5rem;
+    height: 3px;
+    top: 50px;
+    transform: translateY(-50%);
+    position: absolute;
+    background-color: var(--main-white);
+    border-radius: 8px;
+}
+.main-text h2::before{
+    left: -6rem;
+}
+.main-text h2::after{
+    right: -6rem;
+}
+.main-btn{
+    font-size: 1.5rem;
+    border: 2px solid var(--main-font-color);
+    padding: 2rem 2.5rem;
+    background-color:black;
+    font-family: "Lucida Calligraphy";
+    letter-spacing: 3px;
+    margin-right: -3px;
+    position: relative;
+    margin-top: 3rem;
+    color:white;
+}
+.main-btn:hover{
+    transform:translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+}
+.main-btn:active{
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+/*Upcoming events*/
+.upcoming-events .container p{
+    color:white;
+    font-size:large;
+    text-transform:uppercase;
+    font-weight:bold;
+    background-color:red;
+    display:inline-block;
+    border-radius:30px;
+    padding:20px 20px 20px 20px;
+    text-align:center;
+    justify-content:center;
+    margin-left:25%;
+}
+.upcoming-events .container p:hover{
+    background-color:firebrick;
+    cursor:pointer;
+}
+
+/*About Us*/
+.about-us .info{
+	display: inline;
+    float:left;
+	font-family:lucida;
+	margin-top: 0;
+    margin-bottom:20px;
+
+}
+
+.about-us .header{
+    background-color:crimson;
+	margin-bottom:10px;
+	border:1px solid white;
+}
+
+
+.about-us .us{
+  
+    padding:10px;
+    background-color:white;
+    margin:10px auto;
+}
+.about-us .info .vision {
+    padding: 10px;
+    background-color: white;
+    margin: 10px auto;
+}
+
+.about-us .info .mission {
+    padding: 10px;
+    background-color: white;
+    margin: 10px auto;
+}
+
+
+
+/*Section - Our Menu*/
+
+/*Section - Contact Us*/
+.contact-us {
+    background: linear-gradient(to bottom, rgba(5,5,5,.5), transparent), url("../images/members.jpg") bottom no-repeat;
+    --main-font-color: white;
+    background-size:cover;
+    color:coral;
+}
+.contact-us p{
+    color:peachpuff;
+}
+.contact-us .container{
+    margin:10px;
+}
+/*Footer*/
+.footer-distributed {
+    background-color: #292c2f;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    font: bold 16px sans-serif;
+    text-align: left;
+    padding: 50px 60px 40px;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+    /* Footer left */
+
+    .footer-distributed .footer-left {
+        float: left;
+    }
+
+    /* The company logo */
+
+    .footer-distributed h3 {
+        color: #ffffff;
+        font: normal 36px 'Cookie', cursive;
+        margin: 0 0 10px;
+    }
+
+        .footer-distributed h3 span {
+            color: #5383d3;
+        }
+
+    /* Footer links */
+
+    .footer-distributed .footer-links {
+        color: #ffffff;
+        margin: 0 10px 20px;
+        padding: 20px;
+    }
+
+        .footer-distributed .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            text-decoration: none;
+            color: inherit;
+        }
+
+    .footer-distributed .footer-company-name {
+        color: #8f9296;
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    /* Footer social icons */
+
+    .footer-distributed .footer-icons {
+        margin-top: 40px;
+    }
+
+        .footer-distributed .footer-icons a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color: #33383b;
+            border-radius: 2px;
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+
+    /* Footer Right */
+
+    .footer-distributed .footer-right {
+        float: right;
+    }
+
+        .footer-distributed .footer-right p {
+            display: inline-block;
+            vertical-align: top;
+            margin: 15px 42px 0 0;
+            color: #ffffff;
+        }
+
+    /* The contact form */
+
+    .footer-distributed form {
+        display: inline-block;
+    }
+
+        .footer-distributed form input,
+        .footer-distributed form textarea {
+            display: block;
+            border-radius: 3px;
+            box-sizing: border-box;
+            background-color: #1f2022;
+            box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+            border: none;
+            resize: none;
+            font: inherit;
+            font-size: 14px;
+            font-weight: normal;
+            color: #d1d2d2;
+            width: 400px;
+            padding: 18px;
+        }
+
+    .footer-distributed ::-webkit-input-placeholder {
+        color: #5c666b;
+    }
+
+    .footer-distributed ::-moz-placeholder {
+        color: #5c666b;
+        opacity: 1;
+    }
+
+    .footer-distributed :-ms-input-placeholder {
+        color: #5c666b;
+    }
+
+
+    .footer-distributed form input {
+        height: 55px;
+        margin-bottom: 15px;
+    }
+
+    .footer-distributed form textarea {
+        height: 100px;
+        margin-bottom: 20px;
+    }
+
+    .footer-distributed form button {
+        border-radius: 3px;
+        background-color: #33383b;
+        color: #ffffff;
+        border: 0;
+        padding: 15px 50px;
+        font-weight: bold;
+        float: right;
+    }
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 1000px) {
+
+    .footer-distributed {
+        font: bold 14px sans-serif;
+    }
+
+        .footer-distributed .footer-company-name {
+            font-size: 12px;
+        }
+
+        .footer-distributed form input,
+        .footer-distributed form textarea {
+            width: 250px;
+        }
+
+        .footer-distributed form button {
+            padding: 10px 35px;
+        }
+}
+
+@media (max-width: 800px) {
+
+    .footer-distributed {
+        padding: 30px;
+    }
+
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-right {
+            float: none;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .footer-distributed .footer-left {
+            margin-bottom: 40px;
+        }
+
+        .footer-distributed form {
+            margin-top: 30px;
+        }
+
+        .footer-distributed form {
+            display: block;
+        }
+
+            .footer-distributed form button {
+                float: none;
+            }
+}

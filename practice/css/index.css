@@ -1,0 +1,120 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: lato;
+}
+.header{
+    background: #181818;
+    height: 100px;
+}
+.header img{
+    background-size: contain;
+    width: 80px;
+    height: 50px;
+    padding: 5px;
+    margin: 5px;
+}
+.header .menu{
+    display: flex;
+    float: right;
+}
+.header .menu ul{
+    display: flex;
+    padding: 10px;
+}
+.header .menu ul li{
+    list-style-type: none;
+    padding: 10px;
+}
+.header .menu ul li a{
+    color: #d65050;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.header .menu ul li a:hover{
+    color: #1e56de;
+    text-decoration: none;
+    transition: all .8s;
+}
+.header hr{
+    margin: 0;
+    padding: 0;
+}
+.content{
+    display: flex;
+    margin: 0;
+    padding: 10px;
+    background: #181818;
+    color: #ccc;
+}
+.content h4{
+    text-align: center;
+    color: #d65050;
+}
+.content button{
+    color: #d65050;
+    background: #181818;
+    padding: 9px;
+    width: 80px;
+}
+.content button:hover{
+    color: #1c54e2;
+    transition: all .8s;
+    top: 5px;
+}
+/* .content input:forth-child{
+    display: flex;
+    float: right;
+} */
+.content .signup-form{
+    display: inline-flex;
+    padding: 10px;
+    border: 1px solid #d65050;  
+    
+}
+.content .signup-form .left{
+    display: flex;
+    float: left;
+    flex-direction: column;
+}
+.content .signup-form .right{
+    display: flex;
+    float: right;
+    flex-direction: column;
+}
+.content .signup-form .text-input{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    background: #181818;
+    color: #ccc;
+}
+
+.content .login-form{
+    padding: 10px;
+    width: 50%;
+}
+.content .login-form .text-input{
+    margin: 5px;
+    display: flex;
+    background: #181818;
+    color: #ccc;
+}
+.aside
+{
+    display: flex;
+    float: center;
+    text-align: right;
+    margin-left: 20px;
+    padding: 10px;
+    color: #ccc;
+}
+.footer{
+    margin: 0;
+    padding: 10px;
+    height: 50px;
+    background: #181818;
+    text-align: center;
+    color: #ccc;
+    border-top: 1px solid #ccc;
+}
